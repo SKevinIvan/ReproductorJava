@@ -23,8 +23,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  *
  * @author HP
  */
-public class ReproductorWii extends javax.swing.JFrame
-{
+public class ReproductorWii extends javax.swing.JFrame {
 
     Music hiloMusica = new Music();
     HilosDeBarra hiloBarra = new HilosDeBarra();
@@ -41,8 +40,7 @@ public class ReproductorWii extends javax.swing.JFrame
     /**
      * Creates new form ReproductorWii
      */
-    public ReproductorWii()
-    {
+    public ReproductorWii() {
         initComponents();
         Image icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/iconoReproductor.png"));
         setIconImage(icono);
@@ -62,11 +60,9 @@ public class ReproductorWii extends javax.swing.JFrame
         botonReanuarPista.setEnabled(false);
 
         jlistaReproduccion.setCellRenderer(new listaC());
-        try
-        {
+        try {
             k.start();
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
         panelMenu.setVisible(false);
@@ -79,8 +75,7 @@ public class ReproductorWii extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         panelContenedor = new javax.swing.JPanel();
         botonReanuarPista = new javax.swing.JButton();
@@ -101,9 +96,9 @@ public class ReproductorWii extends javax.swing.JFrame
         botonLista = new javax.swing.JButton();
         imagen = new javax.swing.JLabel();
         etiquetaDuracion = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         etiquetaNombre = new javax.swing.JLabel();
         barraProgreso = new org.edisoncor.gui.progressBar.ProgressBarRound();
+        etiquetaNombre1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,10 +108,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonReanuarPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001879 - begin blue continue go play shadow start.png"))); // NOI18N
         botonReanuarPista.setBorder(null);
         botonReanuarPista.setContentAreaFilled(false);
-        botonReanuarPista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonReanuarPista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonReanuarPistaActionPerformed(evt);
             }
         });
@@ -125,10 +118,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonAgregarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001884 - blue menu playlist settings shadow.png"))); // NOI18N
         botonAgregarLista.setBorder(null);
         botonAgregarLista.setContentAreaFilled(false);
-        botonAgregarLista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonAgregarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAgregarListaActionPerformed(evt);
             }
         });
@@ -137,10 +128,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonAñadirPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001887 - add blue increase plus shadow.png"))); // NOI18N
         botonAñadirPista.setBorder(null);
         botonAñadirPista.setContentAreaFilled(false);
-        botonAñadirPista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonAñadirPista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAñadirPistaActionPerformed(evt);
             }
         });
@@ -149,10 +138,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonAnteriorPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001868 - backward blue decrease previous rewind shadow skip.png"))); // NOI18N
         botonAnteriorPista.setBorder(null);
         botonAnteriorPista.setContentAreaFilled(false);
-        botonAnteriorPista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonAnteriorPista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonAnteriorPistaActionPerformed(evt);
             }
         });
@@ -161,10 +148,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonPausarPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001889 - blue end pause shadow stop wait.png"))); // NOI18N
         botonPausarPista.setBorder(null);
         botonPausarPista.setContentAreaFilled(false);
-        botonPausarPista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonPausarPista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPausarPistaActionPerformed(evt);
             }
         });
@@ -173,10 +158,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonSiguientePista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001880 - begin continue forward navigate next shadow skip.png"))); // NOI18N
         botonSiguientePista.setBorder(null);
         botonSiguientePista.setContentAreaFilled(false);
-        botonSiguientePista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonSiguientePista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonSiguientePistaActionPerformed(evt);
             }
         });
@@ -185,10 +168,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001885 - end square stop.png"))); // NOI18N
         botonStop.setBorder(null);
         botonStop.setContentAreaFilled(false);
-        botonStop.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonStop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonStopActionPerformed(evt);
             }
         });
@@ -197,10 +178,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonEliminarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001866 - blue close cross exit shadow x.png"))); // NOI18N
         botonEliminarLista.setBorder(null);
         botonEliminarLista.setContentAreaFilled(false);
-        botonEliminarLista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonEliminarLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonEliminarListaActionPerformed(evt);
             }
         });
@@ -209,10 +188,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001879 - begin blue continue go play shadow start.png"))); // NOI18N
         botonPlay.setBorder(null);
         botonPlay.setContentAreaFilled(false);
-        botonPlay.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonPlayActionPerformed(evt);
             }
         });
@@ -227,10 +204,8 @@ public class ReproductorWii extends javax.swing.JFrame
         txtBuscaCancion.setBotonColor(new java.awt.Color(51, 51, 51));
         txtBuscaCancion.setFont(new java.awt.Font("Roboto Bold", 1, 12)); // NOI18N
         txtBuscaCancion.setPlaceholder("busca una canción...");
-        txtBuscaCancion.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyReleased(java.awt.event.KeyEvent evt)
-            {
+        txtBuscaCancion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscaCancionKeyReleased(evt);
             }
         });
@@ -247,17 +222,14 @@ public class ReproductorWii extends javax.swing.JFrame
         jlistaReproduccion.setBackground(new java.awt.Color(51, 51, 51));
         jlistaReproduccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jlistaReproduccion.setForeground(new java.awt.Color(0, 153, 153));
-        jlistaReproduccion.setModel(new javax.swing.AbstractListModel<String>()
-        {
+        jlistaReproduccion.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Pista 1", "Pista 2", "Pista 3", "Pista 4", "Pista 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jlistaReproduccion.setSelectionBackground(new java.awt.Color(0, 153, 153));
-        jlistaReproduccion.addMouseListener(new java.awt.event.MouseAdapter()
-        {
-            public void mouseClicked(java.awt.event.MouseEvent evt)
-            {
+        jlistaReproduccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jlistaReproduccionMouseClicked(evt);
             }
         });
@@ -270,10 +242,8 @@ public class ReproductorWii extends javax.swing.JFrame
         botonLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001881 - blue details more settings shadow.png"))); // NOI18N
         botonLista.setBorder(null);
         botonLista.setContentAreaFilled(false);
-        botonLista.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        botonLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonListaActionPerformed(evt);
             }
         });
@@ -287,17 +257,11 @@ public class ReproductorWii extends javax.swing.JFrame
         etiquetaDuracion.setText("00:00");
         panelContenedor.add(etiquetaDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 50, 20));
 
-        jLabel7.setFont(new java.awt.Font("Cambria", 0, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Wonderland-12.0");
-        panelContenedor.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 410, 40));
-
-        etiquetaNombre.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        etiquetaNombre.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         etiquetaNombre.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        etiquetaNombre.setText("...");
-        panelContenedor.add(etiquetaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 560, 30));
+        etiquetaNombre.setText("Reproductor mp3");
+        panelContenedor.add(etiquetaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 610, 60));
 
         barraProgreso.setBackground(new java.awt.Color(51, 51, 51));
         barraProgreso.setForeground(new java.awt.Color(51, 204, 255));
@@ -307,11 +271,17 @@ public class ReproductorWii extends javax.swing.JFrame
         barraProgreso.setDistanciaDeSombra(0);
         panelContenedor.add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 510, 10));
 
+        etiquetaNombre1.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        etiquetaNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaNombre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        etiquetaNombre1.setText("Desarrollado por s.kevin_ivan");
+        panelContenedor.add(etiquetaNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, 270, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+            .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,8 +293,7 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonReanuarPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonReanuarPistaActionPerformed
     {//GEN-HEADEREND:event_botonReanuarPistaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
+        if (!listaArchivos.isEmpty()) {
 
             hiloMusica.Continuar(); //reanuda el hilo musica
 
@@ -347,69 +316,19 @@ public class ReproductorWii extends javax.swing.JFrame
     private void botonAgregarListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonAgregarListaActionPerformed
     {//GEN-HEADEREND:event_botonAgregarListaActionPerformed
 
-        try
-        {
-            JFileChooser selecciona = new JFileChooser();  //crea objeto file chooser
-            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo MP3", "mp3", "mp3");  //solo muestra archivos .mp3 en file chocer
-            selecciona.setFileFilter(filtro);  //se agrega el filtro al file chooser
-            selecciona.showOpenDialog(this);   //sin esto me marcaba error :v
-            File archivo = selecciona.getSelectedFile(); //obtiene el archivo en la variable archivo
-            String ruta = ""; //borra la ruta para evitar que se quede una anterior
-
-            if (archivo != null) // si no se selecciono ningun archivo no hace nada
-            {
-                listaArchivos.clear(); //lo mismo pero para la lista de archivos
-                listaArchivos.add(archivo); //agrega el archivo al array
-                ruta = archivo.getCanonicalPath(); //obtiene la ruta del archivo
-
-                hiloMusica.Stop(); //para el hilo anterior en caso de existir
-                hiloMusica.AbrirFichero(ruta); //manda la ubicacion del archivo al hilo musica
-                hiloMusica.Play(); //reproduce el archivo
-
-                etiquetaNombre.setText(archivo.getName());//obtiene el nombre del archivo/cancion
-
-                dura = ManipulaReproducctor.calcularDuracion(archivo); //llama al metodo para calcular tiempo en segundos
-
-                //comprueba si el hilo tiempo e hilo barra estan activos
-                if (hiloDuracion.isAlive())
-                {  //para ambos hilos
-                    hiloDuracion.stop();
-                }
-                if (hiloBarra.isAlive())
-                {
-
-                    hiloBarra.stop();
-                }
-                barra();
-
-                botonAnteriorPista.setEnabled(true);
-                botonAñadirPista.setEnabled(true);
-                botonEliminarLista.setEnabled(true);
-                botonSiguientePista.setEnabled(true);
-                botonStop.setEnabled(true);
-                botonPausarPista.setEnabled(true);
-                botonPlay.setEnabled(true);
-                botonReanuarPista.setEnabled(true);
-                ManipulaReproducctor.listaReproduccion(lista, listaArchivos, jlistaReproduccion);
-                ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
-                botonPlay.setVisible(false);
-                botonReanuarPista.setVisible(false);
-                botonPausarPista.setVisible(true);
-
-            }
-
-        } catch (HeadlessException | IOException e)
-        {
-            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+        if (panelMenu.isVisible()) {
+            panelMenu.setVisible(false);
+        } else {
+            panelMenu.setVisible(true);
         }
+
+
     }//GEN-LAST:event_botonAgregarListaActionPerformed
 
     private void botonAñadirPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonAñadirPistaActionPerformed
     {//GEN-HEADEREND:event_botonAñadirPistaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+        if (!listaArchivos.isEmpty()) {
+            try {
 
                 JFileChooser selecciona = new JFileChooser(); //creacion del file chooser
                 FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo MP3", "mp3", "mp3"); //filtrado de archivos .mp3
@@ -417,15 +336,13 @@ public class ReproductorWii extends javax.swing.JFrame
                 selecciona.showOpenDialog(this);
                 File archivo = selecciona.getSelectedFile(); //guarda el archivo actual en variable archivo
 
-                if (archivo != null)
-                {
+                if (archivo != null) {
                     listaArchivos.add(archivo); //añade el archivo a la lista
                 }
 
                 ManipulaReproducctor.listaReproduccion(lista, listaArchivos, jlistaReproduccion);
                 ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
-            } catch (HeadlessException e)
-            {
+            } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -433,29 +350,23 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonAnteriorPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonAnteriorPistaActionPerformed
     {//GEN-HEADEREND:event_botonAnteriorPistaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+        if (!listaArchivos.isEmpty()) {
+            try {
 
                 int indice = 0;
                 String nombre = etiquetaNombre.getText();
 
-                for (int i = 0; i < listaArchivos.size(); i++)
-                {
+                for (int i = 0; i < listaArchivos.size(); i++) {
                     File archivo = (File) listaArchivos.get(i);
-                    if (nombre.equals(archivo.getName()))
-                    {
+                    if (nombre.equals(archivo.getName())) {
                         indice = i;
                         break;
                     }
                 }
 
-                if ((indice - 1) == -1)
-                {
+                if ((indice - 1) == -1) {
                     indice = listaArchivos.size() - 1;
-                } else
-                {
+                } else {
                     indice--;
                 }
 
@@ -471,12 +382,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                 dura = ManipulaReproducctor.calcularDuracion(archivo);
 
-                if (hiloDuracion.isAlive())
-                {
+                if (hiloDuracion.isAlive()) {
                     hiloDuracion.stop();
                 }
-                if (hiloBarra.isAlive())
-                {
+                if (hiloBarra.isAlive()) {
 
                     hiloBarra.stop();
 
@@ -488,8 +397,7 @@ public class ReproductorWii extends javax.swing.JFrame
                 botonReanuarPista.setVisible(false);
                 botonPausarPista.setVisible(true);
                 ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -497,8 +405,7 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonPausarPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonPausarPistaActionPerformed
     {//GEN-HEADEREND:event_botonPausarPistaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
+        if (!listaArchivos.isEmpty()) {
 
             hiloMusica.Pausa();  //pausa hilo musica
 
@@ -520,27 +427,21 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonSiguientePistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonSiguientePistaActionPerformed
     {//GEN-HEADEREND:event_botonSiguientePistaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+        if (!listaArchivos.isEmpty()) {
+            try {
                 int indice = 0;
                 String nombre = etiquetaNombre.getText();
 
-                for (int i = 0; i < listaArchivos.size(); i++)
-                {
+                for (int i = 0; i < listaArchivos.size(); i++) {
                     File archivo = (File) listaArchivos.get(i);
-                    if (nombre.equals(archivo.getName()))
-                    {
+                    if (nombre.equals(archivo.getName())) {
                         indice = i;
                         break;
                     }
                 }
-                if ((indice + 1) == listaArchivos.size())
-                {
+                if ((indice + 1) == listaArchivos.size()) {
                     indice = 0;
-                } else
-                {
+                } else {
                     indice++;
                 }
                 File archivo = (File) listaArchivos.get(indice);
@@ -555,12 +456,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                 dura = ManipulaReproducctor.calcularDuracion(archivo);
 
-                if (hiloDuracion.isAlive())
-                {
+                if (hiloDuracion.isAlive()) {
                     hiloDuracion.stop();
                 }
-                if (hiloBarra.isAlive())
-                {
+                if (hiloBarra.isAlive()) {
 
                     hiloBarra.stop();
                 }
@@ -572,8 +471,7 @@ public class ReproductorWii extends javax.swing.JFrame
                 botonReanuarPista.setVisible(false);
                 botonPausarPista.setVisible(true);
 
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -581,20 +479,17 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonStopActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonStopActionPerformed
     {//GEN-HEADEREND:event_botonStopActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
+        if (!listaArchivos.isEmpty()) {
             imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
             barraProgreso.setValue(0);
             etiquetaDuracion.setText("00:00");
 
             hiloMusica.Stop();
 
-            if (hiloDuracion.isAlive())
-            {
+            if (hiloDuracion.isAlive()) {
                 hiloDuracion.stop();
             }
-            if (hiloBarra.isAlive())
-            {
+            if (hiloBarra.isAlive()) {
 
                 hiloBarra.stop();
             }
@@ -610,10 +505,8 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonEliminarListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonEliminarListaActionPerformed
     {//GEN-HEADEREND:event_botonEliminarListaActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+        if (!listaArchivos.isEmpty()) {
+            try {
 
                 listaArchivos.clear(); //lo mismo pero para la lista de archivos
                 imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
@@ -623,12 +516,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                 hiloMusica.Stop();
 
-                if (hiloDuracion.isAlive())
-                {
+                if (hiloDuracion.isAlive()) {
                     hiloDuracion.stop();
                 }
-                if (hiloBarra.isAlive())
-                {
+                if (hiloBarra.isAlive()) {
 
                     hiloBarra.stop();
                 }
@@ -650,8 +541,7 @@ public class ReproductorWii extends javax.swing.JFrame
                 botonPlay.setEnabled(false);
                 botonReanuarPista.setEnabled(false);
 
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -659,19 +549,15 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonPlayActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonPlayActionPerformed
     {//GEN-HEADEREND:event_botonPlayActionPerformed
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+        if (!listaArchivos.isEmpty()) {
+            try {
 
                 int indice = 0;
                 String nombre = etiquetaNombre.getText();
 
-                for (int i = 0; i < listaArchivos.size(); i++)
-                {
+                for (int i = 0; i < listaArchivos.size(); i++) {
                     File archivo = (File) listaArchivos.get(i);
-                    if (nombre.equals(archivo.getName()))
-                    {
+                    if (nombre.equals(archivo.getName())) {
                         indice = i;
                         break;
                     }
@@ -689,12 +575,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                 dura = ManipulaReproducctor.calcularDuracion(archivo);
 
-                if (hiloDuracion.isAlive())
-                {
+                if (hiloDuracion.isAlive()) {
                     hiloDuracion.stop();
                 }
-                if (hiloBarra.isAlive())
-                {
+                if (hiloBarra.isAlive()) {
 
                     hiloBarra.stop();
                 }
@@ -707,8 +591,7 @@ public class ReproductorWii extends javax.swing.JFrame
                 botonPausarPista.setVisible(true);
                 botonStop.setEnabled(true);
 
-            } catch (IOException ex)
-            {
+            } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -716,87 +599,75 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void jlistaReproduccionMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_jlistaReproduccionMouseClicked
     {//GEN-HEADEREND:event_jlistaReproduccionMouseClicked
-        if (!listaArchivos.isEmpty())
-        {
+        if (!listaArchivos.isEmpty()) {
             int opcion;
-            ImageIcon imagenMensaje=new javax.swing.ImageIcon(getClass().getResource("/imagenes/1055020 - music.png"));
-            String menu[] =
-            {
-                "Reproducir pista", "Quitar de la lista"
-            };
-            opcion = JOptionPane.showOptionDialog(this, "Selecciona una opción", "Opciones ", JOptionPane.DEFAULT_OPTION
-                    , JOptionPane.QUESTION_MESSAGE, imagenMensaje, menu, menu[0]);
+            ImageIcon imagenMensaje = new javax.swing.ImageIcon(getClass().getResource("/imagenes/1055020 - music.png"));
+            String menu[]
+                    = {
+                        "Reproducir pista", "Quitar de la lista"
+                    };
+            opcion = JOptionPane.showOptionDialog(this, "Selecciona una opción", "Opciones ", JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, imagenMensaje, menu, menu[0]);
 
-            switch (opcion)
-            {
+            switch (opcion) {
                 case 0:
                     //REPROCIR AUDIO SELECCIONADO
-                    try
-                    {
-                        int indice = 0;
-                        String nombre = "";
-                        if (jlistaReproduccion.getSelectedIndex() != -1)
-                        {
-                            nombre = jlistaReproduccion.getSelectedValue();
-                        }
-
-                        for (int i = 0; i < listaArchivos.size(); i++)
-                        {
-                            File archivo = (File) listaArchivos.get(i);
-                            if (nombre.equals(archivo.getName()))
-                            {
-                                indice = i;
-                                break;
-                            }
-                        }
-
-                        File archivo = (File) listaArchivos.get(indice);
-
-                        String ruta = archivo.getCanonicalPath();
-
-                        hiloMusica.Stop();
-                        hiloMusica.AbrirFichero(ruta);
-                        hiloMusica.Play();
-                        etiquetaNombre.setText(archivo.getName());
-                        botonPlay.setEnabled(true);
-
-                        dura = ManipulaReproducctor.calcularDuracion(archivo);
-
-                        if (hiloDuracion.isAlive())
-                        {
-                            hiloDuracion.stop();
-                        }
-                        if (hiloBarra.isAlive())
-                        {
-
-                            hiloBarra.stop();
-                        }
-
-                        ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
-                        barra();
-                        botonPlay.setVisible(false);
-                        botonReanuarPista.setVisible(false);
-                        botonPausarPista.setVisible(true);
-
-                        botonStop.setEnabled(true);
-
-                    } catch (IOException ex)
-                    {
-                        JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                    try {
+                    int indice = 0;
+                    String nombre = "";
+                    if (jlistaReproduccion.getSelectedIndex() != -1) {
+                        nombre = jlistaReproduccion.getSelectedValue();
                     }
-                    break;
+
+                    for (int i = 0; i < listaArchivos.size(); i++) {
+                        File archivo = (File) listaArchivos.get(i);
+                        if (nombre.equals(archivo.getName())) {
+                            indice = i;
+                            break;
+                        }
+                    }
+
+                    File archivo = (File) listaArchivos.get(indice);
+
+                    String ruta = archivo.getCanonicalPath();
+
+                    hiloMusica.Stop();
+                    hiloMusica.AbrirFichero(ruta);
+                    hiloMusica.Play();
+                    etiquetaNombre.setText(archivo.getName());
+                    botonPlay.setEnabled(true);
+
+                    dura = ManipulaReproducctor.calcularDuracion(archivo);
+
+                    if (hiloDuracion.isAlive()) {
+                        hiloDuracion.stop();
+                    }
+                    if (hiloBarra.isAlive()) {
+
+                        hiloBarra.stop();
+                    }
+
+                    ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
+                    barra();
+                    botonPlay.setVisible(false);
+                    botonReanuarPista.setVisible(false);
+                    botonPausarPista.setVisible(true);
+
+                    botonStop.setEnabled(true);
+
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
                 case 1:
                     //ELIMINAR AUDIO SELECCIONADO
                     int indice = 0;
                     String nombre = "";
-                    if (jlistaReproduccion.getSelectedIndex() != -1)
-                    {
+                    if (jlistaReproduccion.getSelectedIndex() != -1) {
                         nombre = jlistaReproduccion.getSelectedValue();
-                        for (int i = 0; i < listaArchivos.size(); i++)
-                        {
+                        for (int i = 0; i < listaArchivos.size(); i++) {
                             File archivo = (File) listaArchivos.get(i);
-                            if (nombre.equals(archivo.getName()))
-                            {
+                            if (nombre.equals(archivo.getName())) {
                                 indice = i;
                                 break;
                             }
@@ -817,30 +688,24 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void txtBuscaCancionKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtBuscaCancionKeyReleased
     {//GEN-HEADEREND:event_txtBuscaCancionKeyReleased
-        if (txtBuscaCancion.getText().isEmpty())
-        {
+        if (txtBuscaCancion.getText().isEmpty()) {
             ManipulaReproducctor.listaReproduccion(lista, listaArchivos, jlistaReproduccion);
             ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
-        } else
-        {
-            if (!listaArchivos.isEmpty())
-            {
+        } else {
+            if (!listaArchivos.isEmpty()) {
                 String cancion = txtBuscaCancion.getText();
                 lista.clear();
-                for (int i = 0; i < listaArchivos.size(); i++)
-                {
+                for (int i = 0; i < listaArchivos.size(); i++) {
 
                     File archivo = (File) listaArchivos.get(i);
-                    if (archivo.getName().startsWith(cancion))
-                    {
+                    if (archivo.getName().startsWith(cancion)) {
                         lista.addElement(archivo.getName());
 
                     }
 
                 }
                 jlistaReproduccion.setModel(lista);
-                if (lista.isEmpty())
-                {
+                if (lista.isEmpty()) {
                     ManipulaReproducctor.listaReproduccion(lista, listaArchivos, jlistaReproduccion);
                     ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
                 }
@@ -852,53 +717,87 @@ public class ReproductorWii extends javax.swing.JFrame
 
     private void botonListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_botonListaActionPerformed
     {//GEN-HEADEREND:event_botonListaActionPerformed
-        if (panelMenu.isVisible())
-        {
-            panelMenu.setVisible(false);
-        } else
-        {
-            panelMenu.setVisible(true);
+        try {
+            JFileChooser selecciona = new JFileChooser();  //crea objeto file chooser
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo MP3", "mp3", "mp3");  //solo muestra archivos .mp3 en file chocer
+            selecciona.setFileFilter(filtro);  //se agrega el filtro al file chooser
+            selecciona.setMultiSelectionEnabled(true);
+            int resultado = selecciona.showOpenDialog(this);   //sin esto me marcaba error :v
+            if (resultado == JFileChooser.APPROVE_OPTION) {
+                File[] archivos = selecciona.getSelectedFiles();
+                if (archivos != null && archivos.length > 0) {
+                    listaArchivos.clear();
+                    for (File archivo : archivos) {
+                        listaArchivos.add(archivo);
+                    }
+
+                    String ruta = archivos[0].getCanonicalPath();
+                    hiloMusica.Stop(); //para el hilo anterior en caso de existir
+                    hiloMusica.AbrirFichero(ruta); //manda la ubicacion del archivo al hilo musica
+                    hiloMusica.Play(); //reproduce el archivo
+
+                    etiquetaNombre.setText(archivos[0].getName());//obtiene el nombre del archivo/cancion
+
+                    dura = ManipulaReproducctor.calcularDuracion(archivos[0]); //llama al metodo para calcular tiempo en segundos
+
+                    //comprueba si el hilo tiempo e hilo barra estan activos
+                    if (hiloDuracion.isAlive()) {  //para ambos hilos
+                        hiloDuracion.stop();
+                    }
+                    if (hiloBarra.isAlive()) {
+
+                        hiloBarra.stop();
+                    }
+                    barra();
+
+                    botonAnteriorPista.setEnabled(true);
+                    botonAñadirPista.setEnabled(true);
+                    botonEliminarLista.setEnabled(true);
+                    botonSiguientePista.setEnabled(true);
+                    botonStop.setEnabled(true);
+                    botonPausarPista.setEnabled(true);
+                    botonPlay.setEnabled(true);
+                    botonReanuarPista.setEnabled(true);
+                    ManipulaReproducctor.listaReproduccion(lista, listaArchivos, jlistaReproduccion);
+                    ManipulaReproducctor.seleccionaLista(etiquetaNombre, listaArchivos, jlistaReproduccion);
+                    botonPlay.setVisible(false);
+                    botonReanuarPista.setVisible(false);
+                    botonPausarPista.setVisible(true);
+                }
+            }
+
+        } catch (HeadlessException | IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
 
 
     }//GEN-LAST:event_botonListaActionPerformed
-    Thread k = new Thread()
-    {
+    Thread k = new Thread() {
         @Override
-        public void run()
-        {
-            while (true)
-            {
-                try
-                {
-                    if (barraProgreso.getValue() == 100)
-                    {
+        public void run() {
+            while (true) {
+                try {
+                    if (barraProgreso.getValue() == 100) {
 
                         botonSiguientePistaActionPerformed(null);
                     }
                     String cancion = etiquetaNombre.getText();
                     boolean c = false;
-                    for (int i = 0; i < listaArchivos.size(); i++)
-                    {
+                    for (int i = 0; i < listaArchivos.size(); i++) {
                         File archivo = (File) listaArchivos.get(i);
-                        if (archivo.getName().equals(cancion))
-                        {
+                        if (archivo.getName().equals(cancion)) {
                             c = true;
                         }
                     }
-                    if (c == false && (barraProgreso.getValue() > 0))
-                    {
-                        if (listaArchivos.isEmpty())
-                        {
+                    if (c == false && (barraProgreso.getValue() > 0)) {
+                        if (listaArchivos.isEmpty()) {
 
-                        } else
-                        {
+                        } else {
                             siguente();
                         }
                     }
 
-                    if (listaArchivos.isEmpty() && (barraProgreso.getValue() > 0))
-                    {
+                    if (listaArchivos.isEmpty() && (barraProgreso.getValue() > 0)) {
                         JOptionPane.showMessageDialog(null, "La pista de Audio no existe", "Mensaje de error", JOptionPane.WARNING_MESSAGE);
 
                         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
@@ -908,12 +807,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                         hiloMusica.Stop();
 
-                        if (hiloDuracion.isAlive())
-                        {
+                        if (hiloDuracion.isAlive()) {
                             hiloDuracion.stop();
                         }
-                        if (hiloBarra.isAlive())
-                        {
+                        if (hiloBarra.isAlive()) {
 
                             hiloBarra.stop();
                         }
@@ -938,18 +835,15 @@ public class ReproductorWii extends javax.swing.JFrame
 
                     sleep(1000);
 
-                } catch (InterruptedException ex)
-                {
+                } catch (InterruptedException ex) {
                     JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
     };
 
-    public void barra()
-    {
-        try
-        {
+    public void barra() {
+        try {
 
             espera = ((1 * dura) / 100) * 1000; //calcula la espera entre el porcentaje de la barra para que dure lo mismo que el hilo tiempo de musica
             contador = contador2 = contador3 = contador4 = 0;
@@ -963,22 +857,17 @@ public class ReproductorWii extends javax.swing.JFrame
             hiloBarra.start();
             hiloDuracion.start();
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void siguente()
-    {
-        if (!listaArchivos.isEmpty())
-        {
-            try
-            {
+    public void siguente() {
+        if (!listaArchivos.isEmpty()) {
+            try {
                 int indice = Integer.parseInt(etiquetaNombre.getName());
-                
-                if ((indice) == listaArchivos.size())
-                {
+
+                if ((indice) == listaArchivos.size()) {
                     indice = 0;
                 }
                 File archivo = (File) listaArchivos.get(indice);
@@ -993,12 +882,10 @@ public class ReproductorWii extends javax.swing.JFrame
 
                 dura = ManipulaReproducctor.calcularDuracion(archivo);
 
-                if (hiloDuracion.isAlive())
-                {
+                if (hiloDuracion.isAlive()) {
                     hiloDuracion.stop();
                 }
-                if (hiloBarra.isAlive())
-                {
+                if (hiloBarra.isAlive()) {
 
                     hiloBarra.stop();
                 }
@@ -1010,8 +897,7 @@ public class ReproductorWii extends javax.swing.JFrame
                 botonReanuarPista.setVisible(false);
                 botonPausarPista.setVisible(true);
 
-            } catch (IOException e)
-            {
+            } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
         }
@@ -1020,20 +906,15 @@ public class ReproductorWii extends javax.swing.JFrame
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[])
-    {
-        try
-        {
+    public static void main(String args[]) {
+        try {
             UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e)
-        {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
             JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
         }
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
                 new ReproductorWii().setVisible(true);
             }
         });
@@ -1053,10 +934,10 @@ public class ReproductorWii extends javax.swing.JFrame
     private javax.swing.JButton botonStop;
     private javax.swing.JLabel etiquetaDuracion;
     private javax.swing.JLabel etiquetaNombre;
+    private javax.swing.JLabel etiquetaNombre1;
     private javax.swing.JLabel imagen;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList<String> jlistaReproduccion;
     private javax.swing.JPanel panelContenedor;
