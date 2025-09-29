@@ -9,7 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.tritonus.share.sampled.file.TAudioFileFormat;
 
-public class ManipulaReproducctor {
+public class ControllerReproductor {
 
     /**
      * Metodo que recibe un archivo para calcular duracion
