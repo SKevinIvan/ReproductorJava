@@ -5,67 +5,132 @@
  */
 package classes;
 
-import java.awt.HeadlessException;
+import views.ListCellView;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.filechooser.FileNameExtensionFilter;
-
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import org.edisoncor.gui.progressBar.ProgressBarRound;
+import rojeru_san.RSMTextFull;
 /**
  *
  * @author skevinivan
  */
 public class ReproductorUI extends javax.swing.JFrame {
 
-    ControllerSong thrMusic = new ControllerSong();
-    ProgressSong thrProgressBar = new ProgressSong();
-    TimeSong thrTime = new TimeSong();//hilo tiempo o duracion
-
-    int porcent, aux;//guarda el percentaje | guarda el tiempo donde se quedo la cancion
-    double durationSong;//guarda lo que durationSong la cancion en segundos
-    double delayCalcProgress;
-    int minutos, segundos;
-
-    ArrayList<Object> playlist = new ArrayList<>();
-    DefaultListModel lista = new DefaultListModel();
+    private DefaultListModel lstModel;
+    private Image icono;
 
     /**
      * Creates new form ReproductorWii
      */
     public ReproductorUI() {
         initComponents();
-        Image icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icon.png"));
+        lstModel = new DefaultListModel();
+        icono = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/icon.png"));
         setIconImage(icono);
-        lstPlaylist.setModel(lista);
+
         setLocationRelativeTo(null);
         setTitle("Reproductor MP3");
         setResizable(false);
 
-        //Muestra los botones que se pueden utilizar
-        btnAnteriorPista.setEnabled(false);
-        btnAgregarPista.setEnabled(false);
-        btnEliminarLista.setEnabled(false);
-        btnSiguientePista.setEnabled(false);
-        btnStop.setEnabled(false);
-        btnPausarPista.setEnabled(false);
-        btnPlay.setEnabled(false);
-        btnReanuarPista.setEnabled(false);
-
+        lstPlaylist.setModel(lstModel);
         lstPlaylist.setCellRenderer(new ListCellView());
-        try {
-            k.start();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-        }
-        pnlPlayList.setVisible(false);
+    }
+
+    public DefaultListModel getLstModel() {
+        return lstModel;
+    }
+
+    public Image getIcono() {
+        return icono;
+    }
+
+    public JButton getBtnAbrirLista() {
+        return btnAbrirLista;
+    }
+
+    public JButton getBtnAgregarPista() {
+        return btnAgregarPista;
+    }
+
+    public JButton getBtnAnteriorPista() {
+        return btnAnteriorPista;
+    }
+
+    public JButton getBtnEliminarLista() {
+        return btnEliminarLista;
+    }
+
+    public JButton getBtnMostrarLista() {
+        return btnMostrarLista;
+    }
+
+    public JButton getBtnPausarPista() {
+        return btnPausarPista;
+    }
+
+    public JButton getBtnPlay() {
+        return btnPlay;
+    }
+
+    public JButton getBtnReanuarPista() {
+        return btnReanuarPista;
+    }
+
+    public JButton getBtnSiguientePista() {
+        return btnSiguientePista;
+    }
+
+    public JButton getBtnStop() {
+        return btnStop;
+    }
+
+    public JLabel getLblAbout() {
+        return lblAbout;
+    }
+
+    public JLabel getLblAlbumImage() {
+        return lblAlbumImage;
+    }
+
+    public JLabel getLblImageSearch() {
+        return lblImageSearch;
+    }
+
+    public JLabel getLblNameSong() {
+        return lblNameSong;
+    }
+
+    public JLabel getLblTimeSong() {
+        return lblTimeSong;
+    }
+
+    public JLabel getLblTitleSearch() {
+        return lblTitleSearch;
+    }
+
+    public JList<String> getLstPlaylist() {
+        return lstPlaylist;
+    }
+
+    public JPanel getPanelContenedor() {
+        return panelContenedor;
+    }
+
+    public JPanel getPnlPlayList() {
+        return pnlPlayList;
+    }
+
+    public ProgressBarRound getProgressBarSong() {
+        return progressBarSong;
+    }
+
+    public RSMTextFull getTxtBuscaCancion() {
+        return txtBuscaCancion;
     }
 
     /**
@@ -108,91 +173,46 @@ public class ReproductorUI extends javax.swing.JFrame {
         btnReanuarPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001879 - begin blue continue go play shadow start.png"))); // NOI18N
         btnReanuarPista.setBorder(null);
         btnReanuarPista.setContentAreaFilled(false);
-        btnReanuarPista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReanuarPistaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnReanuarPista, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 50, 50));
 
         btnMostrarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001884 - blue menu playlist settings shadow.png"))); // NOI18N
         btnMostrarLista.setBorder(null);
         btnMostrarLista.setContentAreaFilled(false);
-        btnMostrarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarListaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnMostrarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 50, 50));
 
         btnAgregarPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001887 - add blue increase plus shadow.png"))); // NOI18N
         btnAgregarPista.setBorder(null);
         btnAgregarPista.setContentAreaFilled(false);
-        btnAgregarPista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarPistaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnAgregarPista, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 50, 50));
 
         btnAnteriorPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001868 - backward blue decrease previous rewind shadow skip.png"))); // NOI18N
         btnAnteriorPista.setBorder(null);
         btnAnteriorPista.setContentAreaFilled(false);
-        btnAnteriorPista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAnteriorPistaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnAnteriorPista, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, 50, 50));
 
         btnPausarPista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001889 - blue end pause shadow stop wait.png"))); // NOI18N
         btnPausarPista.setBorder(null);
         btnPausarPista.setContentAreaFilled(false);
-        btnPausarPista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPausarPistaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnPausarPista, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 50, 50));
 
         btnSiguientePista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001880 - begin continue forward navigate next shadow skip.png"))); // NOI18N
         btnSiguientePista.setBorder(null);
         btnSiguientePista.setContentAreaFilled(false);
-        btnSiguientePista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSiguientePistaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnSiguientePista, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, 50, 50));
 
         btnStop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001885 - end square stop.png"))); // NOI18N
         btnStop.setBorder(null);
         btnStop.setContentAreaFilled(false);
-        btnStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnStop, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 50, 50));
 
         btnEliminarLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001866 - blue close cross exit shadow x.png"))); // NOI18N
         btnEliminarLista.setBorder(null);
         btnEliminarLista.setContentAreaFilled(false);
-        btnEliminarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarListaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnEliminarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 50, 50));
 
         btnPlay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001879 - begin blue continue go play shadow start.png"))); // NOI18N
         btnPlay.setBorder(null);
         btnPlay.setContentAreaFilled(false);
-        btnPlay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPlayActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 50, 50));
 
         pnlPlayList.setBackground(new java.awt.Color(51, 51, 51));
@@ -204,11 +224,6 @@ public class ReproductorUI extends javax.swing.JFrame {
         txtBuscaCancion.setBotonColor(new java.awt.Color(51, 51, 51));
         txtBuscaCancion.setFont(new java.awt.Font("Roboto Bold", 1, 12)); // NOI18N
         txtBuscaCancion.setPlaceholder("busca una canción...");
-        txtBuscaCancion.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtBuscaCancionKeyReleased(evt);
-            }
-        });
         pnlPlayList.add(txtBuscaCancion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 180, 40));
 
         lblImageSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/search.png"))); // NOI18N
@@ -228,11 +243,6 @@ public class ReproductorUI extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         lstPlaylist.setSelectionBackground(new java.awt.Color(0, 153, 153));
-        lstPlaylist.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lstPlaylistMouseClicked(evt);
-            }
-        });
         scrollPanePlayList.setViewportView(lstPlaylist);
 
         pnlPlayList.add(scrollPanePlayList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 220, 180));
@@ -242,11 +252,6 @@ public class ReproductorUI extends javax.swing.JFrame {
         btnAbrirLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48/2001881 - blue details more settings shadow.png"))); // NOI18N
         btnAbrirLista.setBorder(null);
         btnAbrirLista.setContentAreaFilled(false);
-        btnAbrirLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAbrirListaActionPerformed(evt);
-            }
-        });
         panelContenedor.add(btnAbrirLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 50, 50));
 
         lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif"))); // NOI18N
@@ -291,638 +296,6 @@ public class ReproductorUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnReanuarPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnReanuarPistaActionPerformed
-    {//GEN-HEADEREND:event_btnReanuarPistaActionPerformed
-        if (!playlist.isEmpty()) {
-
-            thrMusic.resume(); //reanuda el hilo musica
-
-            thrProgressBar = new ProgressSong((int) delayCalcProgress, (int) durationSong, porcent);
-            thrTime = new TimeSong( minutos, segundos, (int) durationSong, aux);
-
-            thrTime.recibeJLabel(lblTimeSong);
-            thrProgressBar.recibirBarraDeProgreso(progressBarSong, lblAlbumImage );
-
-            thrProgressBar.start(); //inicio de la continuacion de los hilos (play)
-            thrTime.start();
-
-            btnPlay.setVisible(false);
-            btnReanuarPista.setVisible(false);
-            btnPausarPista.setVisible(true);
-            btnStop.setVisible(true);
-        }
-    }//GEN-LAST:event_btnReanuarPistaActionPerformed
-
-    private void btnMostrarListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMostrarListaActionPerformed
-    {//GEN-HEADEREND:event_btnMostrarListaActionPerformed
-        if (pnlPlayList.isVisible()) {
-            pnlPlayList.setVisible(false);
-        } else {
-            pnlPlayList.setVisible(true);
-        }
-    }//GEN-LAST:event_btnMostrarListaActionPerformed
-
-    private void btnAgregarPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAgregarPistaActionPerformed
-    {//GEN-HEADEREND:event_btnAgregarPistaActionPerformed
-        if (!playlist.isEmpty()) {
-            try {
-                JFileChooser selecciona = new JFileChooser();
-                FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo MP3", "mp3");
-                selecciona.setFileFilter(filtro);
-
-                selecciona.setMultiSelectionEnabled(true);
-
-                int resultado = selecciona.showOpenDialog(this);
-
-                if (resultado == JFileChooser.APPROVE_OPTION) {
-                    File[] archivos = selecciona.getSelectedFiles();
-
-                    if (archivos != null && archivos.length > 0) {
-                        for (File archivo : archivos) {
-                            playlist.add(archivo);
-                        }
-                    }
-
-                    ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                }
-            } catch (HeadlessException e) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-
-    }//GEN-LAST:event_btnAgregarPistaActionPerformed
-
-    private void btnAnteriorPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAnteriorPistaActionPerformed
-    {//GEN-HEADEREND:event_btnAnteriorPistaActionPerformed
-        if (!playlist.isEmpty()) {
-            try {
-
-                int indice = 0;
-                String nombre = lblNameSong.getText();
-
-                for (int i = 0; i < playlist.size(); i++) {
-                    File archivo = (File) playlist.get(i);
-                    if (nombre.equals(archivo.getName())) {
-                        indice = i;
-                        break;
-                    }
-                }
-
-                if ((indice - 1) == -1) {
-                    indice = playlist.size() - 1;
-                } else {
-                    indice--;
-                }
-
-                File archivo = (File) playlist.get(indice);
-
-                String ruta = archivo.getCanonicalPath();
-
-                thrMusic.stop();
-                thrMusic.open(ruta);
-                thrMusic.play();
-                lblNameSong.setText(archivo.getName());
-                btnPlay.setEnabled(true);
-
-                durationSong = ControllerReproductor.calcularDuracion(archivo);
-
-                if (thrTime.isAlive()) {
-                    thrTime.stop();
-                }
-                if (thrProgressBar.isAlive()) {
-
-                    thrProgressBar.stop();
-
-                }
-
-                barra();
-                ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                btnPlay.setVisible(false);
-                btnReanuarPista.setVisible(false);
-                btnPausarPista.setVisible(true);
-                ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnAnteriorPistaActionPerformed
-
-    private void btnPausarPistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPausarPistaActionPerformed
-    {//GEN-HEADEREND:event_btnPausarPistaActionPerformed
-        if (!playlist.isEmpty()) {
-
-            thrMusic.pause();  //pausa hilo musica
-
-            lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif"))); //cambia a imagen inicial
-            minutos = thrTime.getMinutos(); //guarda segundos
-            segundos = thrTime.getSegundos(); //guarda minutos
-            aux = thrTime.getAux();                  //guarda la duracion de la cancion actual
-            porcent = thrProgressBar.getPorcent();         //guarda el porcentaje de la barra
-
-            thrProgressBar.stop();
-
-            btnPlay.setVisible(false);
-            btnReanuarPista.setVisible(true);
-            btnPausarPista.setVisible(false);
-            btnStop.setVisible(true);
-        }
-    }//GEN-LAST:event_btnPausarPistaActionPerformed
-
-    private void btnSiguientePistaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSiguientePistaActionPerformed
-    {//GEN-HEADEREND:event_btnSiguientePistaActionPerformed
-        if (!playlist.isEmpty()) {
-            try {
-                int indice = 0;
-                String nombre = lblNameSong.getText();
-
-                for (int i = 0; i < playlist.size(); i++) {
-                    File archivo = (File) playlist.get(i);
-                    if (nombre.equals(archivo.getName())) {
-                        indice = i;
-                        break;
-                    }
-                }
-                if ((indice + 1) == playlist.size()) {
-                    indice = 0;
-                } else {
-                    indice++;
-                }
-                File archivo = (File) playlist.get(indice);
-
-                String ruta = archivo.getCanonicalPath();
-
-                thrMusic.stop();
-                thrMusic.open(ruta);
-                thrMusic.play();
-                lblNameSong.setText(archivo.getName());
-                btnPlay.setEnabled(true);
-
-                durationSong = ControllerReproductor.calcularDuracion(archivo);
-
-                if (thrTime.isAlive()) {
-                    thrTime.stop();
-                }
-                if (thrProgressBar.isAlive()) {
-
-                    thrProgressBar.stop();
-                }
-
-                barra();
-                ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                btnPlay.setVisible(false);
-                btnReanuarPista.setVisible(false);
-                btnPausarPista.setVisible(true);
-
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnSiguientePistaActionPerformed
-
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnStopActionPerformed
-    {//GEN-HEADEREND:event_btnStopActionPerformed
-        if (!playlist.isEmpty()) {
-            lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
-            progressBarSong.setValue(0);
-            lblTimeSong.setText("00:00");
-
-            thrMusic.stop();
-
-            if (thrTime.isAlive()) {
-                thrTime.stop();
-            }
-            if (thrProgressBar.isAlive()) {
-
-                thrProgressBar.stop();
-            }
-
-            ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-            ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-            btnPlay.setVisible(true);
-            btnReanuarPista.setVisible(false);
-            btnPausarPista.setVisible(false);
-            btnStop.setEnabled(false);
-        }
-    }//GEN-LAST:event_btnStopActionPerformed
-
-    private void btnEliminarListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnEliminarListaActionPerformed
-    {//GEN-HEADEREND:event_btnEliminarListaActionPerformed
-        if (!playlist.isEmpty()) {
-            try {
-
-                playlist.clear(); //lo mismo pero para la lista de archivos
-                lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
-                lblNameSong.setText("...");
-                progressBarSong.setValue(0);
-                lblTimeSong.setText("00:00");
-
-                thrMusic.stop();
-
-                if (thrTime.isAlive()) {
-                    thrTime.stop();
-                }
-                if (thrProgressBar.isAlive()) {
-
-                    thrProgressBar.stop();
-                }
-
-                ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-
-                //
-                btnPausarPista.setVisible(false);
-                btnReanuarPista.setVisible(false);
-                btnPlay.setVisible(true);
-                //Muestra los botones que se pueden utilizar
-
-                btnAnteriorPista.setEnabled(false);
-                btnAgregarPista.setEnabled(false);
-                btnEliminarLista.setEnabled(false);
-                btnSiguientePista.setEnabled(false);
-                btnStop.setEnabled(false);
-                btnPausarPista.setEnabled(false);
-                btnPlay.setEnabled(false);
-                btnReanuarPista.setEnabled(false);
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnEliminarListaActionPerformed
-
-    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnPlayActionPerformed
-    {//GEN-HEADEREND:event_btnPlayActionPerformed
-        if (!playlist.isEmpty()) {
-            try {
-
-                int indice = 0;
-                String nombre = lblNameSong.getText();
-
-                for (int i = 0; i < playlist.size(); i++) {
-                    File archivo = (File) playlist.get(i);
-                    if (nombre.equals(archivo.getName())) {
-                        indice = i;
-                        break;
-                    }
-                }
-
-                File archivo = (File) playlist.get(indice);
-
-                String ruta = archivo.getCanonicalPath();
-
-                thrMusic.stop();
-                thrMusic.open(ruta);
-                thrMusic.play();
-                lblNameSong.setText(archivo.getName());
-                btnPlay.setEnabled(true);
-
-                durationSong = ControllerReproductor.calcularDuracion(archivo);
-
-                if (thrTime.isAlive()) {
-                    thrTime.stop();
-                }
-                if (thrProgressBar.isAlive()) {
-
-                    thrProgressBar.stop();
-                }
-
-                barra();
-                ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                btnPlay.setVisible(false);
-                btnReanuarPista.setVisible(false);
-                btnPausarPista.setVisible(true);
-                btnStop.setEnabled(true);
-
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_btnPlayActionPerformed
-
-    private void lstPlaylistMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_lstPlaylistMouseClicked
-    {//GEN-HEADEREND:event_lstPlaylistMouseClicked
-        if (!playlist.isEmpty()) {
-            int opcion;
-            ImageIcon imagenMensaje = new javax.swing.ImageIcon(getClass().getResource("/imagenes/1055020 - music.png"));
-            String menu[]
-                    = {
-                        "Reproducir pista", "Quitar de la lista"
-                    };
-            opcion = JOptionPane.showOptionDialog(this, "Selecciona una opción", "Opciones ", JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.QUESTION_MESSAGE, imagenMensaje, menu, menu[0]);
-
-            switch (opcion) {
-                case 0:
-                    //REPROCIR AUDIO SELECCIONADO
-                    try {
-                    int indice = 0;
-                    String nombre = "";
-                    if (lstPlaylist.getSelectedIndex() != -1) {
-                        nombre = lstPlaylist.getSelectedValue();
-                    }
-
-                    for (int i = 0; i < playlist.size(); i++) {
-                        File archivo = (File) playlist.get(i);
-                        if (nombre.equals(archivo.getName())) {
-                            indice = i;
-                            break;
-                        }
-                    }
-
-                    File archivo = (File) playlist.get(indice);
-
-                    String ruta = archivo.getCanonicalPath();
-
-                    thrMusic.stop();
-                    thrMusic.open(ruta);
-                    thrMusic.play();
-                    lblNameSong.setText(archivo.getName());
-                    btnPlay.setEnabled(true);
-
-                    durationSong = ControllerReproductor.calcularDuracion(archivo);
-
-                    if (thrTime.isAlive()) {
-                        thrTime.stop();
-                    }
-                    if (thrProgressBar.isAlive()) {
-
-                        thrProgressBar.stop();
-                    }
-
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                    barra();
-                    btnPlay.setVisible(false);
-                    btnReanuarPista.setVisible(false);
-                    btnPausarPista.setVisible(true);
-
-                    btnStop.setEnabled(true);
-
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-                }
-                break;
-                case 1:
-                    //ELIMINAR AUDIO SELECCIONADO
-                    int indice = 0;
-                    String nombre = "";
-                    if (lstPlaylist.getSelectedIndex() != -1) {
-                        nombre = lstPlaylist.getSelectedValue();
-                        for (int i = 0; i < playlist.size(); i++) {
-                            File archivo = (File) playlist.get(i);
-                            if (nombre.equals(archivo.getName())) {
-                                indice = i;
-                                break;
-                            }
-                        }
-
-                        playlist.remove(indice);
-                        lblNameSong.setName(indice + "");
-                    }
-                    ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                    break;
-                default:
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                    break;
-            }
-        }
-    }//GEN-LAST:event_lstPlaylistMouseClicked
-
-    private void txtBuscaCancionKeyReleased(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtBuscaCancionKeyReleased
-    {//GEN-HEADEREND:event_txtBuscaCancionKeyReleased
-        if (txtBuscaCancion.getText().isEmpty()) {
-            ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-            ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-        } else {
-            if (!playlist.isEmpty()) {
-                String cancion = txtBuscaCancion.getText();
-                lista.clear();
-                for (int i = 0; i < playlist.size(); i++) {
-
-                    File archivo = (File) playlist.get(i);
-                    if (archivo.getName().startsWith(cancion)) {
-                        lista.addElement(archivo.getName());
-
-                    }
-
-                }
-                lstPlaylist.setModel(lista);
-                if (lista.isEmpty()) {
-                    ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                }
-            }
-        }
-
-
-    }//GEN-LAST:event_txtBuscaCancionKeyReleased
-
-    private void btnAbrirListaActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAbrirListaActionPerformed
-    {//GEN-HEADEREND:event_btnAbrirListaActionPerformed
-        try {
-            JFileChooser selecciona = new JFileChooser();  //crea objeto file chooser
-            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo MP3", "mp3", "mp3");  //solo muestra archivos .mp3 en file chocer
-            selecciona.setFileFilter(filtro);  //se agrega el filtro al file chooser
-            selecciona.setMultiSelectionEnabled(true);
-            int resultado = selecciona.showOpenDialog(this);   //sin esto me marcaba error :v
-            if (resultado == JFileChooser.APPROVE_OPTION) {
-                File[] archivos = selecciona.getSelectedFiles();
-                if (archivos != null && archivos.length > 0) {
-                    playlist.clear();
-                    for (File archivo : archivos) {
-                        playlist.add(archivo);
-                    }
-
-                    String ruta = archivos[0].getCanonicalPath();
-                    thrMusic.stop(); //para el hilo anterior en caso de existir
-                    thrMusic.open(ruta); //manda la ubicacion del archivo al hilo musica
-                    thrMusic.play(); //reproduce el archivo
-
-                    lblNameSong.setText(archivos[0].getName());//obtiene el nombre del archivo/cancion
-
-                    durationSong = ControllerReproductor.calcularDuracion(archivos[0]); //llama al metodo para calcular tiempo en segundos
-
-                    //comprueba si el hilo tiempo e hilo barra estan activos
-                    if (thrTime.isAlive()) {  //para ambos hilos
-                        thrTime.stop();
-                    }
-                    if (thrProgressBar.isAlive()) {
-
-                        thrProgressBar.stop();
-                    }
-                    barra();
-
-                    btnAnteriorPista.setEnabled(true);
-                    btnAgregarPista.setEnabled(true);
-                    btnEliminarLista.setEnabled(true);
-                    btnSiguientePista.setEnabled(true);
-                    btnStop.setEnabled(true);
-                    btnPausarPista.setEnabled(true);
-                    btnPlay.setEnabled(true);
-                    btnReanuarPista.setEnabled(true);
-                    ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                    ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                    btnPlay.setVisible(false);
-                    btnReanuarPista.setVisible(false);
-                    btnPausarPista.setVisible(true);
-                }
-            }
-
-        } catch (HeadlessException | IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-        }
-
-
-    }//GEN-LAST:event_btnAbrirListaActionPerformed
- 
-    Thread k = new Thread() {
-        @Override
-        public void run() {
-            while (true) {
-                try {
-                    if (progressBarSong.getValue() == 100) {
-
-                        btnSiguientePistaActionPerformed(null);
-                    }
-                    String cancion = lblNameSong.getText();
-                    boolean c = false;
-                    for (int i = 0; i < playlist.size(); i++) {
-                        File archivo = (File) playlist.get(i);
-                        if (archivo.getName().equals(cancion)) {
-                            c = true;
-                        }
-                    }
-                    if (c == false && (progressBarSong.getValue() > 0)) {
-                        if (playlist.isEmpty()) {
-
-                        } else {
-                            nextSong();
-                        }
-                    }
-
-                    if (playlist.isEmpty() && (progressBarSong.getValue() > 0)) {
-                        JOptionPane.showMessageDialog(null, "La pista de Audio no existe", "Mensaje de error", JOptionPane.WARNING_MESSAGE);
-
-                        lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gota.gif")));
-                        lblNameSong.setText("...");
-                        progressBarSong.setValue(0);
-                        lblTimeSong.setText("00:00");
-
-                        thrMusic.stop();
-
-                        if (thrTime.isAlive()) {
-                            thrTime.stop();
-                        }
-                        if (thrProgressBar.isAlive()) {
-
-                            thrProgressBar.stop();
-                        }
-
-                        ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-
-                        //
-                        btnPausarPista.setVisible(false);
-                        btnReanuarPista.setVisible(false);
-                        btnPlay.setVisible(true);
-//Muestra los botones que se pueden utilizar
-
-                        btnAnteriorPista.setEnabled(false);
-                        btnAgregarPista.setEnabled(false);
-                        btnEliminarLista.setEnabled(false);
-                        btnSiguientePista.setEnabled(false);
-                        btnStop.setEnabled(false);
-                        btnPausarPista.setEnabled(false);
-                        btnPlay.setEnabled(false);
-                        btnReanuarPista.setEnabled(false);
-                    }
-
-                    sleep(1000);
-
-                } catch (InterruptedException ex) {
-                    JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-                }
-            }
-        }
-    };
-
-    public void barra() {
-        try {
-            delayCalcProgress = ((1 * durationSong) / 100) * 1000; //calcula la delayCalcProgress entre el porcentaje de la barra para que dure lo mismo que el hilo tiempo de musica
-            minutos = segundos = 0;
-            porcent = 0;
-            thrTime = new TimeSong(minutos, segundos, (int) durationSong, aux); //crea nuevos objetos de hilos con los valores en los que se encontraban al momento de la pausa
-            thrTime.recibeJLabel(lblTimeSong);
-
-            thrProgressBar = new ProgressSong((int) delayCalcProgress, (int) durationSong, porcent);
-            thrProgressBar.recibirBarraDeProgreso(progressBarSong, lblAlbumImage);
-
-            thrProgressBar.start();
-            thrTime.start();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-
-    public void nextSong() {
-        if (!playlist.isEmpty()) {
-            try {
-                int indice = Integer.parseInt(lblNameSong.getName());
-
-                if ((indice) == playlist.size()) {
-                    indice = 0;
-                }
-                File archivo = (File) playlist.get(indice);
-
-                String ruta = archivo.getCanonicalPath();
-
-                thrMusic.stop();
-                thrMusic.open(ruta);
-                thrMusic.play();
-                lblNameSong.setText(archivo.getName());
-                btnPlay.setEnabled(true);
-
-                durationSong = ControllerReproductor.calcularDuracion(archivo);
-
-                if (thrTime.isAlive()) {
-                    thrTime.stop();
-                }
-                if (thrProgressBar.isAlive()) {
-
-                    thrProgressBar.stop();
-                }
-
-                barra();
-                ControllerReproductor.listaReproduccion(lista, playlist, lstPlaylist);
-                ControllerReproductor.seleccionaLista(lblNameSong, playlist, lstPlaylist);
-                btnPlay.setVisible(false);
-                btnReanuarPista.setVisible(false);
-                btnPausarPista.setVisible(true);
-
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-            JOptionPane.showMessageDialog(null, "ERROR ", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-        }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReproductorUI().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrirLista;

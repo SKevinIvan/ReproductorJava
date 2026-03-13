@@ -66,7 +66,8 @@ public class ProgressSong extends Thread {
     public void recibirBarraDeProgreso(JProgressBar progressBar, JLabel albumImage) {
         this.progressBarSong = progressBar;
         this.lblAlbumImage = albumImage;
-        this.lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/abstract-sphere---002.gif")));
+        this.lblAlbumImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sphere.gif")));
+
     }
 
     @Override
@@ -82,7 +83,7 @@ public class ProgressSong extends Thread {
             try {
                 Thread.sleep(delay);
             } catch (InterruptedException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR",
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
                         "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
                 Thread.currentThread().interrupt();
             }

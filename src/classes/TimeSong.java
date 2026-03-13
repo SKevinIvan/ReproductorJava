@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 public class TimeSong extends Thread {
 
     private JLabel lblTimeSong;
-    private int minutos, segundos, aux;
+    private int minutos=0, segundos=0, aux=0;
     private int duration;
 
     public TimeSong() {
@@ -88,7 +88,7 @@ public class TimeSong extends Thread {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR",
+                JOptionPane.showMessageDialog(null, ex.getMessage(),
                         "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
                 Thread.currentThread().interrupt();
             }

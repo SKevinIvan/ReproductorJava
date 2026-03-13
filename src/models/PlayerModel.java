@@ -1,14 +1,14 @@
-package classes;
+package models;
 
 import java.io.File;
 import javax.swing.JOptionPane;
 import javazoom.jlgui.basicplayer.BasicPlayer;
 
-public class ControllerSong {
+public class PlayerModel {
 
-    public BasicPlayer player;
-
-    public ControllerSong() {
+    private BasicPlayer player;
+    
+    public PlayerModel() {
         player = new BasicPlayer();
     }
 

@@ -1,4 +1,4 @@
-package classes;
+package views;
 
 import java.awt.Component;
 import javax.swing.JLabel;
